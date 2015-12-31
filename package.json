@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/geoff616/survivejsWebpackReact/issues"
   },
-  "homepage": "https://github.com/geoff616/survivejsWebpackReact#readme"
+  "homepage": "https://github.com/geoff616/survivejsWebpackReact#readme",
+  "devDependencies": {
+    "webpack": "^1.12.9"
+  }
 }
