@@ -15,7 +15,18 @@ const common = {
 
   // Entry accepts a path or an object of entries.
   // The build chapter contains an example of the latter.
-  entry: PATHS.app,
+  module: {
+    loaders: [
+      {
+        // Test expects a RegExp! Note the slashes!
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        // Include accepts either a path or an array of paths.
+        include: PATHS.app
+      }
+    ]
+  },
+entry: PATHS.app,
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
@@ -32,6 +43,7 @@ const common = {
 if(TARGET === 'start' || !TARGET) {
 
   module.exports = merge(common, {
+    devtool: 'eval-source-map',
     devServer: {
       historyApiFallback: true,
       hot: true,
