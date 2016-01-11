@@ -1,4 +1,6 @@
 import uuid from 'node-uuid';
+import assign from 'object-assign';
+
 import alt from '../libs/alt';
 import NoteActions from '../actions/NoteActions';
 
@@ -9,12 +11,32 @@ class NoteStore {
     this.notes = [];
   }
   create(note) {
+    const notes = this.notes;
+
+    note.id = uuid.v4();
+
+    this.setState({
+      notes: notes.concat(note)
+    });
 
   }
   update(updatedNote) {
+    const notes = this.notes.map((note) => {
+      if(note.id === updatedNote.id) {
+        return assign({}, note, updatedNote);
+      }
+
+      return note;
+    });
+
+    this.setState({notes});
 
   }
   delete(id) {
+    this.setState({
+      notes: this.notes.filter((note) => note.id !== id)
+    });
+
 
   }
 }
