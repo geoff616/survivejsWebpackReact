@@ -31,9 +31,14 @@
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^3.13.1",
     "html-webpack-plugin": "^1.7.0",
+    "html-webpack-template": "^2.5.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
     "webpack-merge": "^0.6.0"
+  },
+  "dependencies": {
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
   }
 }

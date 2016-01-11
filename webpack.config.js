@@ -78,6 +78,12 @@ if(TARGET === 'start' || !TARGET) {
       port: process.env.PORT
     },
     plugins: [
+      new HtmlwebpackPlugin({
+        template: 'node_modules/html-webpack-template/index.html',
+        title: 'Kanban app',
+        appMountId: 'app'
+
+      }),
       new webpack.HotModuleReplacementPlugin()
     ]
   });
