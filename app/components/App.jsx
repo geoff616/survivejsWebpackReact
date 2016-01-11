@@ -3,6 +3,7 @@ import uuid from 'node-uuid';
 
 import React from 'react';
 
+import Note from './Note.jsx';
 
 
 export default class App extends React.Component {
@@ -36,13 +37,15 @@ export default class App extends React.Component {
         <button onClick={this.addNote}>+</button>
 
         <ul>{notes.map((note) =>
-          <li key={note.id}>{note.task}</li>
+          <li key={note.id}>
+            <Note task={note.task} />
+          </li>
         )}</ul>
       </div>
     );
 
   }
-  
+
   // We are using an experimental feature known as property
   // initializer here. It allows us to bind the method `this`
   // to point at our *App* instance.
