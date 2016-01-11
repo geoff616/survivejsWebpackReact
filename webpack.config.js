@@ -26,15 +26,27 @@ const common = {
     ],
     loaders: [
       {
-        // Test expects a RegExp! Note the slashes!
         test: /\.css$/,
         loaders: ['style', 'css'],
-        // Include accepts either a path or an array of paths.
+        include: PATHS.app
+      },
+
+      // Set up jsx. This accepts js too thanks to RegExp
+      {
+        test: /\.jsx?$/,
+        // Enable caching for improved performance during development
+        // It uses default OS directory by default. If you need something
+        // more custom, pass a path to it. I.e., babel?cacheDirectory=<path>
+        loaders: ['babel?cacheDirectory'],
         include: PATHS.app
       }
+
     ]
   },
-entry: PATHS.app,
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+  entry: PATHS.app,
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
