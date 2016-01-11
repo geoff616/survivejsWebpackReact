@@ -11,6 +11,8 @@ const PATHS = {
 };
 
 
+process.env.BABEL_ENV = TARGET;
+
 const common = {
 
   // Entry accepts a path or an object of entries.
